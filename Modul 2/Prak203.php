@@ -10,15 +10,15 @@
 <form method="post" action="">
     Masukkan Suhu: <input type="number" name="suhu" required><br>
     Dari :  <br>
-    <input type="radio" name="from_unit" value="C"> Celcius (C) <br>
-    <input type="radio" name="from_unit" value="F"> Fahrenheit (F) <br>
-    <input type="radio" name="from_unit" value="Re"> Reamur (Re) <br>
-    <input type="radio" name="from_unit" value="K"> Kelvin (K)<br>
+    <input type="radio" name="from_unit" value="C"> Celcius<br>
+    <input type="radio" name="from_unit" value="F"> Fahrenheit<br>
+    <input type="radio" name="from_unit" value="Re"> Reamur<br>
+    <input type="radio" name="from_unit" value="K"> Kelvin<br>
     Ke : <br>
-    <input type="radio" name="to_unit" value="C"> Celcius (C) <br>
-    <input type="radio" name="to_unit" value="F"> Fahrenheit (F) <br>
-    <input type="radio" name="to_unit" value="Re"> Reamur (Re) <br>
-    <input type="radio" name="to_unit" value="K"> Kelvin (K)<br>
+    <input type="radio" name="to_unit" value="C"> Celcius<br>
+    <input type="radio" name="to_unit" value="F"> Fahrenheit<br>
+    <input type="radio" name="to_unit" value="Re"> Reamur<br>
+    <input type="radio" name="to_unit" value="K"> Kelvin<br>
     <input type="submit" name="submit" value="Konversi">
 </form>
 
