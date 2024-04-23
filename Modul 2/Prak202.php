@@ -1,32 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <style>
+        .error {color: red;}
+    </style>
+    <title>Soal_2_Modul_2</title>
 </head>
 <body>
-    <h3>Masukkan Nama, Nim,dan Jenis Kelamin</h3>
-    <form method="post" action="">
-    Nama: <input type="text" name="nama" required><br>
-    NIM: <input type="text" name="nim" required><br>
-    Jenis Kelamin: <br>
-    <input type="radio" name="J_K" value="Laki-Laki"> Laki-Laki<br>
-    <input type="radio" name="J_K" value="Perempuan"> Perempuan<br>
-    <input type="submit" name="submit" value="Submit">
-    </form> 
-
     <?php
-    if(isset($_POST['submit'])){
-        // Mengambil nilai dari inputan
-        $nama = $_POST['nama'];
-        $nim = $_POST['nim'];
-        $J_K = isset($_POST['J_K']) ? $_POST['J_K'] : '';
+        $namaError = $nimError = $genderError = "";
+        if(isset($_POST["submit"])){
+            if (empty($_POST["nama"])) {
+                $namaError = "nama tidak boleh kosong";
+            }
+            if (empty($_POST["nim"])) {
+                $nimError = "nim tidak boleh kosong";
+            }
+            if (empty($_POST["gender"])) {
+                $genderError = "jenis kelamin tidak boleh kosong";
+            }
+        }?>
 
-        echo "$nama <br>";
-        echo "$nim <br>";
-        echo "$J_K <br>";
+    <form action="" method="post">
+        Nama: <input type="text" name="nama" value="<?=isset($_POST['nama']) ? $_POST['nama'] : ''?>">
+        <span class="error">* <?php echo $namaError;?></span><br>  
+        Nim: <input type="text" name="nim" value="<?=isset($_POST['nim']) ? $_POST['nim'] : ''?>">
+        <span class="error">* <?php echo $nimError;?></span><br>
+        Jenis Kelamin: <span class="error">* <?php echo $genderError;?></span><br>
+        <input type="radio" name="gender" value="Laki-laki" <?php if (isset($_POST["gender"]) and $_POST["gender"] == "Laki-laki") echo "checked";?>>Laki-laki<br>
+        <input type="radio" name="gender" value="Perempuan" <?php if (isset($_POST["gender"]) and $_POST["gender"] == "Perempuan") echo "checked";?>>Perempuan<br>
+        <button type="submit" name="submit">Submit</button>
+    </form>
+    <?php
+    if (isset($_POST["submit"])) {
+        if (!empty($_POST["nama"]) and !empty($_POST["nim"]) and !empty($_POST["gender"])) {
+            echo "<h1>Output: </h1>";
+            if(!empty($_POST["nama"])){
+                echo $_POST["nama"]."<br>";
+            }
+            if(!empty($_POST["nim"])){
+                echo $_POST["nim"]."<br>";
+            }
+            if(!empty($_POST["gender"])) {
+                echo $_POST["gender"];
+            }
         }
-    ?>
+    }?>
 </body>
 </html>
